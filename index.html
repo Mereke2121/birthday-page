@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Плавное появление контента</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Элемент аудио (скрыт) -->
+  <audio id="bg-music" loop style="display: none;">
+    <source src="music.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает аудио.
+  </audio>
+
+  <!-- Оверлей с кнопкой запуска -->
+  <div class="overlay" id="overlay">
+    <button id="startBtn">Начать</button>
+  </div>
+
+  <!-- Основной контент страницы -->
+  <div class="content" id="content">
+    <h1>Happy Birthday!!!</h1>
+    <div class="photo-block">
+      <img src="photo.jpg" alt="Фото">
+    </div>
+    <div class="main-text">
+      <p>Здесь находится основной текст. Вы можете разместить здесь описание, поздравления или любую другую информацию.</p>
+    </div>
+  </div>
+
+  <script>
+    // Обработчик клика по кнопке "Начать"
+    document.getElementById('startBtn').addEventListener('click', function() {
+      // Скрыть оверлей и показать контент
+      document.getElementById('overlay').classList.add('hidden');
+      document.getElementById('content').classList.add('visible');
+      // Попытка запустить музыку
+      // var music = document.getElementById('bg-music');
+      // music.play().catch(function(error) {
+      //    console.log('Ошибка воспроизведения музыки:', error);
+      // });
+    });
+  </script>
+</body>
+</html>
