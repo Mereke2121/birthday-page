@@ -48,10 +48,10 @@
       document.getElementById('overlay').classList.add('hidden');
       document.getElementById('content').classList.add('visible');
       // Попытка запустить музыку
-      // var music = document.getElementById('bg-music');
-      // music.play().catch(function(error) {
-      //    console.log('Ошибка воспроизведения музыки:', error);
-      // });
+      var music = document.getElementById('bg-music');
+      music.play().catch(function(error) {
+         console.log('Ошибка воспроизведения музыки:', error);
+      });
     });
 
     function showPhoto() {
