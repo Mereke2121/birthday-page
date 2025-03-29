@@ -1,65 +1,111 @@
 /* Фон всей страницы */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
-  }
-  
-  /* Оверлей с кнопкой запуска */
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* Полупрозрачный белый фон для видимости фонового изображения */
-    background-color: rgba(255, 255, 255, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    opacity: 1;
-    transition: opacity 1s ease;
-  }
-  .overlay.hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  /* Основной контент скрыт до появления */
-  .content {
-    opacity: 0;
-    transition: opacity 1s ease;
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-  }
-  .content.visible {
-    opacity: 1;
-  }
-  
-  /* Стили для фото-блока */
-  .photo-block img {
-    width: 150px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Стилизация кнопки "Начать" */
-  #startBtn {
-    padding: 20px 40px;
-    font-size: 16px;
-    background-color: #b07b96; /* Розовый */
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  #startBtn:hover {
-    background-color: #c982a6;
-    transform: scale(1.05);
-  }
-  
+  margin: 0;
+  padding: 0;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Оверлей с кнопкой запуска */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Основной контент скрыт до появления */
+.content {
+  opacity: 0;
+  transition: opacity 1s ease;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+.content.visible {
+  opacity: 1;
+}
+
+/* Стили для фото-блока */
+.photo-block img {
+  width: 150px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилизация кнопки "Начать" */
+#startBtn {
+  padding: 20px 40px;
+  font-size: 24px;
+  background-color: #800020;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: 'Dancing Script', cursive;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+#startBtn:hover {
+  background-color: #a70931;
+  transform: scale(1.05);
+}
+
+/* Заголовок и текст */
+.main-title{
+  font-size: 50px;
+  font-family: "Marck Script", cursive;
+  color: #800020
+}
+
+.main-text p {
+  font-family: 'Marck Script', cursive;
+  font-size: 25px;
+  color: #800020;
+}
+
+.show-photo-btn {
+  padding: 20px 40px;
+  font-size: 24px;
+  background-color: #800020;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: 'Dancing Script', cursive;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.show-photo-btn:hover {
+  transform: scale(1.05);
+}
+
+.hidden-photo {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.hidden-photo.visible {
+  display: block;
+  opacity: 1;
+}
