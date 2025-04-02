@@ -19,7 +19,10 @@
 
   <!-- Оверлей с кнопкой запуска -->
   <div class="overlay" id="overlay">
-    <button id="startBtn">Нажми, если ты гей</button>
+    <p class="proof-text">Пруфы, что ты не ...</p>
+    <input type="text" id="proofInput" placeholder="Введи слово">
+    <button id="startBtn">Отправить</button>
+    <p id="errorMessage" style="color: red; display: none;">Неверный пруф! Ц!</p>
   </div>
 
   <!-- Основной контент страницы -->
@@ -40,24 +43,38 @@
     <button class="show-photo-btn" onclick="showPhoto()">Подарок</button>  
   </div>
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.4.2/sha256.js"></script>
   <script>
-    // Обработчик клика по кнопке "Начать"
-    document.getElementById('startBtn').addEventListener('click', function() {
-      // Скрыть оверлей и показать контент
-      document.getElementById('overlay').classList.add('hidden');
-      document.getElementById('content').classList.add('visible');
-      // Попытка запустить музыку
-      var music = document.getElementById('bg-music');
-      music.play().catch(function(error) {
-         console.log('Ошибка воспроизведения музыки:', error);
-      });
-    });
-
     function showPhoto() {
       const photoBlock = document.getElementById('hidden-photo');
       photoBlock.classList.toggle('visible');
     }
+
+    document.getElementById('startBtn').addEventListener('click', function () {
+      const input = document.getElementById('proofInput').value;
+      const errorMessage = document.getElementById('errorMessage');
+
+      // Правильный захэшированный пруф (пример)
+      const correctHash = "cb12828a19e3eca451f2325349f76f14d3b1d071e1d11d3faf014fff4a84fb5b";
+
+      // Хэшируем введенный текст
+      const shaObj = new jsSHA("SHA-256", "TEXT");
+      shaObj.update(input);
+      const hash = shaObj.getHash("HEX");
+
+      // Сравниваем хэши
+      if (hash === correctHash) {
+          document.getElementById('overlay').classList.add('hidden');
+          document.getElementById('content').classList.add('visible');
+
+          var music = document.getElementById('bg-music');
+          music.play().catch(function(error) {
+            console.log('Ошибка воспроизведения музыки:', error);
+          });
+      } else {
+          errorMessage.style.display = "block";
+      }
+    });
   </script>
 </body>
 </html>
